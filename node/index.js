@@ -83,7 +83,12 @@ app.use(
   }),
 );
 app.use(bodyParser.json());
-app.use(cors());
+// app.use(cors());
+
+app.use(cors({
+  origin: ['http://localhost:3000', 'https://plaid-setup.vercel.app'],
+  credentials: true
+}));
 
 app.post('/api/info', function (request, response, next) {
   response.json({
